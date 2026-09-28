@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!-- <!DOCTYPE html> tells the browser "this is a modern HTML5 page" -->
+
+<html lang="en">
+<!-- lang="en" tells the browser/screen readers the page is in English -->
+
+<head>
+  <!-- The <head> holds information ABOUT the page (not shown on screen) -->
+
+  <meta charset="UTF-8">
+  <!-- This lets us use normal letters, symbols and emojis safely -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- This makes the page resize properly on phones and tablets -->
+
+  <title>Pawsitive Pet Academy</title>
+  <!-- This text shows up in the browser tab -->
+
+  <link rel="stylesheet" href="style.css">
+  <!-- This links our CSS file, which controls colours, fonts and layout -->
+</head>
+
+<body>
+  <!-- Everything inside <body> IS shown on the page -->
+
+  <!-- ====================== HEADER / TOP MENU ====================== -->
+  <!-- The header sits at the very top of every page -->
+  <header>
+
+    <div class="header-bar">
+      <!-- This div groups the logo and the menu button together in one row -->
+
+      <h2 class="logo">Pawsitive Pet Academy</h2>
+      <!-- The business name/logo text -->
+
+      <button id="menuButton">Menu</button>
+      <!-- This button only shows/does something on small screens (phones).
+           We give it an "id" so our JavaScript file can find it later. -->
+    </div>
+
+    <nav id="navMenu">
+      <!-- <nav> is a special tag just for navigation links.
+           This menu is HIDDEN by default on small screens (see style.css),
+           and JavaScript will SHOW it when the Menu button is clicked. -->
+
+      <a href="#about">About</a>
+      <!-- href="#about" scrolls down to the section with id="about" -->
+
+      <a href="#services">Services</a>
+      <a href="#calculator">Fee Calculator</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <!-- ====================== HERO / WELCOME SECTION ====================== -->
+  <!-- This is the big, colourful welcome banner at the top of the page -->
+  <section class="hero">
+
+    <p class="badge">Established 2020</p>
+    <!-- A small pill-shaped label -->
+
+    <h1>Better Care. Better Companions.</h1>
+    <!-- The main heading. There should only be ONE <h1> per page. -->
+
+    <p>Professional pet education and care designed to help pets learn, grow and thrive.</p>
+
+    <a href="#services" class="button gold-button">Explore</a>
+    <!-- This link is styled to LOOK like a button using CSS classes -->
+
+    <a href="#contact" class="button outline-button">Contact</a>
+  </section>
+
+
+  <!-- ====================== ABOUT SECTION ====================== -->
+  <section class="about" id="about">
+    <!-- id="about" lets the menu link above jump straight to this section -->
+
+    <p class="small-heading">About Us</p>
+    <h2>Built around pets and the people who love them.</h2>
+    <p>
+      Pawsitive Pet Academy trains owners and their animals together.
+      Every course is taught by qualified handlers who believe good
+      behaviour starts with good communication.
+    </p>
+
+    <div class="promise-box">
+      <!-- A darker box inside the section, to make this text stand out -->
+      <h3>Our Promise</h3>
+      <p>Small class sizes, positive training methods only, and a
+         certified instructor with every learner from start to finish.</p>
+    </div>
+  </section>
+
+
+  <!-- ====================== SERVICES SECTION ====================== -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+
+    <!-- Each course is one "card". They all use class="card"
+         so they share the same look in style.css. -->
+
+    <div class="card">
+      <h3>Canine Obedience Training</h3>
+      <p>Course Fee: R1500 per session</p>
+    </div>
+
+    <div class="card">
+      <h3>Pet Grooming</h3>
+      <p>Course Fee: R1500 per session</p>
+    </div>
+
+    <div class="card">
+      <h3>Animal Behaviour</h3>
+      <p>Course Fee: R1500 per session</p>
+    </div>
+
+    <div class="card">
+      <h3>Pet First Aid</h3>
+      <p>Course Fee: R750 per session</p>
+    </div>
+
+    <div class="card">
+      <h3>Puppy Care</h3>
+      <p>Course Fee: R750 per session</p>
+    </div>
+
+    <div class="card">
+      <h3>Pet Business Management</h3>
+      <p>Course Fee: R1500 per session</p>
+    </div>
+  </section>
+
+
+  <!-- ====================== FEE CALCULATOR SECTION ====================== -->
+  <section class="calculator" id="calculator">
+    <div class="calc-box">
+      <h2>Calculate Your Fees</h2>
+
+      <label for="serviceSelect">Select Service</label>
+      <!-- The "for" attribute connects this label to the dropdown below it,
+           by matching the dropdown's "id". This helps accessibility. -->
+
+      <select id="serviceSelect">
+        <!-- Each <option> has a "value" (the price used in our maths)
+             and text in between the tags (what the user actually reads) -->
+        <option value="1500">Canine Obedience Training (R1500)</option>
+        <option value="1500">Pet Grooming (R1500)</option>
+        <option value="1500">Animal Behaviour (R1500)</option>
+        <option value="750">Pet First Aid (R750)</option>
+        <option value="750">Puppy Care (R750)</option>
+        <option value="1500">Pet Business Management (R1500)</option>
+      </select>
+
+      <label for="sessionInput">Number of Sessions</label>
+      <input type="number" id="sessionInput" min="1" value="1">
+      <!-- type="number" only allows numbers to be typed in.
+           min="1" stops the user from going below 1 session.
+           value="1" is what shows when the page first loads. -->
+
+      <p>Total: <span id="totalText">R1500</span></p>
+      <!-- The <span> is a small tag just for the number, so our JavaScript
+           can update ONLY this bit of text without touching the rest. -->
+
+      <button id="bookButton" class="button gold-button">Book Now</button>
+      <!-- Our script.js file "listens" for clicks on this button -->
+
+      <p id="messageText"></p>
+      <!-- This starts EMPTY. JavaScript will fill it in after Book Now
+           is clicked, to confirm the booking. -->
+    </div>
+  </section>
+
+
+  <!-- ====================== CONTACT SECTION ====================== -->
+  <section class="contact" id="contact">
+    <div class="contact-box">
+      <h2>Contact Us</h2>
+
+      <h3>Contact Details</h3>
+      <p>012 344 5555</p>
+      <p>hello@pawsitivepetacademy.co.za</p>
+      <p>Pretoria, South Africa</p>
+
+      <h3>Open Hours</h3>
+      <p>Mon - Fri 08:00 - 17:00</p>
+    </div>
+  </section>
+
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer>
+    <p>&copy; 2026 Pawsitive Pet Academy</p>
+    <!-- &copy; is a special HTML "character code" for the © symbol -->
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- We link script.js at the VERY BOTTOM of the body (not in the head).
+       This way, the browser reads and builds all the HTML above FIRST,
+       so when script.js runs and tries to find things like "menuButton",
+       those elements already exist on the page. -->
+</body>
+</html>
